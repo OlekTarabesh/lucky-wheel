@@ -5,7 +5,7 @@ import styled from "./App.module.css";
 
 function App() {
   const [result, setResult] = useState<string | null>(null);
-  const [num, setNum] = useState<number>(Math.ceil(Math.random() * 5000) / 60);
+  const [num, setNum] = useState<number>(Math.ceil(Math.random() * 3600));
 
   const spinWheel = (): void => {
     setResult("");
@@ -32,13 +32,13 @@ function App() {
           className={styled.wheel}
           style={{ transform: `rotate(${num}deg)` } as CSSProperties}
         >
-          {prices.map((item) => (
+          {prices.map((item, i) => (
             <div
-              key={item.id}
+              key={i}
               className={styled.valueContainer}
               style={
                 {
-                  "--value": item.id,
+                  "--value": i,
                 } as CSSProperties
               }
             >
